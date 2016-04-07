@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+<title>AngularJS 模态对话框</title>
+<link rel="stylesheet"
+	href="../src/vendor/bootstrap/dist/css/bootstrap.css">
+</head>
+<body ng-app="myApp" class="body">
+	<!-- modal template -->
+	<script type="text/ng-template" id="myModelContent.html">
+		<div class="modal-header">
+			<h3 class="modal-title">模态框</h3>
+		</div>
+		<div class="modal-body">
+			<ul>
+				<li ng-repeat="item in items">
+				<a ng-click="selected.item = item">{{item}}</a>
+				</li>
+				<div class="h2">当前选择： <b>{{selected.item}}</b></div>
+			</ul>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="ok()">
+			确认
+			</button>
+			<button class="btn btn-warning" ng-click="cancel()">退出</button>
+		</div>
+	</script>
+	
+	<div class="container h1">AngularJS 模态对话框</div>
+	<section class="row">
+		<section ng-controller="modalDemo" class="col-md-6"
+			style="margin: 40px auto; float: none; background: #fff; padding: 30px;">
+			<button class="btn btn-default" ng-click="open('lg')">大模态</button>
+			<button class="btn btn-default" ng-click="open()">中模态</button>
+			<button class="btn btn-default" ng-click="open('sm')">小模态</button>
+			<hr>
+			<div class="h1" ng-show="selected">当前选择：{{selected}}</div>
+		</section>
+	</section>
+	<!-- load js -->
+	<script src="../src/vendor/angular/angular.js"></script>
+	<script
+		src="http://cdn.bootcss.com/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.js"></script>
+	<script src="../src/js/mymodal.js"></script>
+</body>
+</html>
